@@ -38,7 +38,7 @@ public partial class LoginForm : Form
             txtLogin.Text,
             _client);
 
-        Hide();
+        Hide(); // Hides a window after login
 
         chat.ShowDialog();
 

@@ -10,6 +10,7 @@ namespace Client.Network
     public class ChatClient
     {
         private readonly TcpClient _client = new();
+        // provides the underlying stream of data for network access over stream sockets
         private NetworkStream? _stream;
 
         public async Task ConnectAsync()

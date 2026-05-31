@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Client.Models
 {
+    // Main Model for data Exchange
     public class Packet
     {
         public string Type { get; set; } = "";

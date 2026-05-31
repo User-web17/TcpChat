@@ -6,6 +6,7 @@ using Server.Models;
 
 namespace Server.Contexts
 {
+    // Db handling inside Context
     public class ChatDbContext : DbContext
     {
         public DbSet<User> Users => Set<User>();

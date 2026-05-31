@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Server.Data
 {
+    // History data exchange type
     public class HistoryResponse
     {
         public string Type { get; set; } = "";

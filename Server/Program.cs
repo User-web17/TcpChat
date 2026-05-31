@@ -10,10 +10,18 @@ using System.Reflection;
 using System.Text;
 using System.Text.Json;
 
+// BCrypt.Net.BCrypt is a class within the popular BCrypt.
+// Net-Next NuGet Package used for securely hashing and verifying passwords in .NET applications.
+// It is an implementation of OpenBSD's Blowfish-based password hashing scheme.
+// The library protects against brute-force attacks by integrating a randomized salt and an adjustable CPU work factor.
+
 namespace Server
 {
     public static class ConnectedClients
     {
+        // a thread-safe collection of key/value pairs designed for multi-threaded scenarios
+        // The main reason for using it,
+        // is simply its manual locking in specialized atomic methods
         public static ConcurrentDictionary<string, TcpClient> Clients = new();
     }
 
@@ -60,6 +68,7 @@ namespace Server
                         Encoding.UTF8.GetString(
                             buffer, 0, count);
 
+                    // the standard and most performant way to handle JSON data
                     Packet? packet =
                         JsonSerializer.Deserialize<Packet>(
                             json);
@@ -133,6 +142,8 @@ namespace Server
                 client.Close();
                 if (currentUser != null)
                 {
+                    // trying to remove a user,
+                    // out value is a discard operator because then it becomes useless
                     ConnectedClients.Clients.TryRemove(
                         currentUser,
                         out _);
@@ -158,6 +169,7 @@ namespace Server
 
             db.Users.Add(new User
             {
+                // used to securely hash passwords in .NET applications.
                 Username = packet.Username!,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(
                     packet.Password)

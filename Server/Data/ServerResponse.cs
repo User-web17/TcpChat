@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Server.Data
 {
+    // Server data exchange type
     public class ServerResponse
     {
         public string Type { get; set; } = "";

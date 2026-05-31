@@ -16,6 +16,9 @@ namespace Client
     {
         private string? Prompt(string text)
         {
+            // A built-in .NET method that displays a simple modal dialog box containing a prompt,
+            // a text box, an OK button, and a Cancel button.
+            // It captures text input from the user and returns it as a string.
             return Microsoft.VisualBasic.Interaction.InputBox(
                 text,
                 "Input",
